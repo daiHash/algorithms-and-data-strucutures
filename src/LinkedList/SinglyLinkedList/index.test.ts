@@ -28,4 +28,41 @@ describe('Singly Linked List', () => {
       expect(list.length).toBe(3)
     })
   })
+
+  describe('pop()', () => {
+    test('Should return undefined if list is empty', () => {
+      const list = new SinglyLinkedList()
+      const result = list.pop()
+
+      expect(result).toBeUndefined()
+    })
+
+    test('Should remove the last node', () => {
+      const list = new SinglyLinkedList()
+      list.push('test')
+      list.push('testing')
+
+      expect(list.head!.next!.value).toBe('testing')
+      expect(list.tail!.value).toBe('testing')
+
+      list.pop()
+
+      expect(list.head!.next).toBeNull
+      expect(list.tail!.value).toBe('test')
+    })
+
+    test('Should decrement length', () => {
+      const list = new SinglyLinkedList()
+      list.push('test')
+      list.push('testing')
+      list.push('tests')
+
+      expect(list.length).toBe(3)
+      list.pop()
+      expect(list.length).toBe(2)
+
+      list.pop()
+      expect(list.length).toBe(1)
+    })
+  })
 })
