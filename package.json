@@ -1,0 +1,24 @@
+{
+  "name": "algorithms-and-data-strucutures",
+  "version": "1.0.0",
+  "description": "Learn Algorithms and Data Structures in Javascript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daiHash/algorithms-and-data-strucutures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daiHash/algorithms-and-data-strucutures/issues"
+  },
+  "homepage": "https://github.com/daiHash/algorithms-and-data-strucutures#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
