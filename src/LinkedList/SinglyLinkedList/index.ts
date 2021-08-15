@@ -1,14 +1,14 @@
 class _Node {
-  val: unknown
+  value: unknown
   next: _Node | null
 
-  constructor(val: unknown) {
-    this.val = val
+  constructor(value: unknown) {
+    this.value = value
     this.next = null
   }
 }
 
-class SinglyLinkedList {
+export class SinglyLinkedList {
   length: number
   head: _Node | null
   tail: _Node | null
@@ -47,15 +47,3 @@ class SinglyLinkedList {
     return current
   }
 }
-
-const list = new SinglyLinkedList()
-list.push('hello')
-list.push('world')
-list.push('🙃')
-
-console.log({ list })
-console.log({ list: JSON.stringify(list) })
-
-list.pop()
-console.log('popped', { list })
-console.log({ list: JSON.stringify(list) })
