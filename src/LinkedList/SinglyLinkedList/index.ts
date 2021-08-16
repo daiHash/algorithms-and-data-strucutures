@@ -81,4 +81,16 @@ export class SinglyLinkedList {
     this.length++
     return this
   }
+
+  get(index: number): _Node | null {
+    if (index < 0 || index >= this.length) return null
+    let currentNode = this.head
+    let currentIndex = 0
+    while (currentNode!.next && currentIndex !== index) {
+      currentNode = currentNode!.next
+      currentIndex++
+    }
+
+    return currentNode
+  }
 }

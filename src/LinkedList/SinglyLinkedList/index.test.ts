@@ -130,4 +130,51 @@ describe('Singly Linked List', () => {
       expect(list.length).toBe(3)
     })
   })
+
+  describe.only('get()', () => {
+    test("should return null if node of given index doesn't exist", () => {
+      const list = new SinglyLinkedList()
+      list.push('A')
+      list.push('B')
+      list.push('C')
+      list.push('D')
+      list.push('E')
+
+      const result = list.get(10)
+
+      expect(result).toBeNull()
+    })
+
+    test('should return null if given index is less than zero or greater than or equal to the length of the list', () => {
+      const list = new SinglyLinkedList()
+      list.push('A')
+      list.push('B')
+      list.push('C')
+      list.push('D')
+      list.push('E')
+
+      const result1 = list.get(-1)
+      const result2 = list.get(100)
+
+      expect(result1).toBeNull()
+      expect(result2).toBeNull()
+    })
+
+    test('should return node of given index', () => {
+      const list = new SinglyLinkedList()
+      list.push('A')
+      list.push('B')
+      list.push('C')
+      list.push('D')
+      list.push('E')
+
+      const result = list.get(2)
+      expect(result!.value).toBe('C')
+      expect(result!.next!.value).toBe('D')
+
+      const result2 = list.get(4)
+      expect(result2!.value).toBe('E')
+      expect(result2!.next).toBeNull
+    })
+  })
 })
