@@ -65,4 +65,40 @@ describe('Singly Linked List', () => {
       expect(list.length).toBe(1)
     })
   })
+
+  describe('shift()', () => {
+    test('Should return undefined if list is empty', () => {
+      const list = new SinglyLinkedList()
+      const result = list.shift()
+
+      expect(result).toBeUndefined()
+    })
+
+    test('Should remove the head node', () => {
+      const list = new SinglyLinkedList()
+      list.push('test')
+      list.push('testing')
+
+      expect(list.head!.value).toBe('test')
+      expect(list.tail!.value).toBe('testing')
+
+      list.shift()
+
+      expect(list.head!.value).toBe('testing')
+    })
+
+    test('Should decrement length', () => {
+      const list = new SinglyLinkedList()
+      list.push('test')
+      list.push('testing')
+      list.push('tests')
+
+      expect(list.length).toBe(3)
+      list.shift()
+      expect(list.length).toBe(2)
+
+      list.shift()
+      expect(list.length).toBe(1)
+    })
+  })
 })
