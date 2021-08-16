@@ -101,4 +101,33 @@ describe('Singly Linked List', () => {
       expect(list.length).toBe(1)
     })
   })
+
+  describe('unshift()', () => {
+    test('Should set head and tail with passed value if head is null', () => {
+      const list = new SinglyLinkedList()
+      list.unshift('test')
+
+      expect(list.head!.value).toBe('test')
+      expect(list.tail!.value).toBe('test')
+    })
+
+    test('Should add to the head if list is not empty', () => {
+      const list = new SinglyLinkedList()
+      list.unshift('test')
+      list.unshift('testing')
+
+      expect(list.head!.value).toBe('testing')
+      expect(list.head!.next!.value).toBe('test')
+      expect(list.tail!.value).toBe('test')
+    })
+
+    test('Should increment length', () => {
+      const list = new SinglyLinkedList()
+      list.unshift('test')
+      list.unshift('testing')
+      list.unshift('tests')
+
+      expect(list.length).toBe(3)
+    })
+  })
 })
