@@ -93,4 +93,13 @@ export class SinglyLinkedList {
 
     return currentNode
   }
+
+  set(index: number, value: unknown): _Node | null {
+    const node = this.get(index)
+    if (!node) return null
+
+    node.value = value
+
+    return node
+  }
 }
