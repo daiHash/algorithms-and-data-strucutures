@@ -1,6 +1,6 @@
-class _Node {
+export class ListNode {
   value: unknown
-  next: _Node | null
+  next: ListNode | null
 
   constructor(value: unknown) {
     this.value = value
@@ -8,10 +8,20 @@ class _Node {
   }
 }
 
+export const linkedListFromArray = (arr: number[]): ListNode => {
+  let head = null
+  for (let i = arr.length - 1; i >= 0; --i) {
+    let newHead = new ListNode(arr[i])
+    newHead.next = head
+    head = newHead
+  }
+  return head as ListNode
+}
+
 export class SinglyLinkedList {
   length: number
-  head: _Node | null
-  tail: _Node | null
+  head: ListNode | null
+  tail: ListNode | null
 
   constructor() {
     this.length = 0
@@ -20,7 +30,7 @@ export class SinglyLinkedList {
   }
 
   push(val: unknown) {
-    const node = new _Node(val)
+    const node = new ListNode(val)
     if (!this.head) {
       this.head = node
       this.tail = node
@@ -69,7 +79,7 @@ export class SinglyLinkedList {
   }
 
   unshift(val: unknown) {
-    const newNode = new _Node(val)
+    const newNode = new ListNode(val)
     if (!this.head) {
       this.head = newNode
       this.tail = this.head
@@ -82,7 +92,7 @@ export class SinglyLinkedList {
     return this
   }
 
-  get(index: number): _Node | null {
+  get(index: number): ListNode | null {
     if (index < 0 || index >= this.length) return null
     let currentNode = this.head
     let currentIndex = 0
@@ -94,7 +104,7 @@ export class SinglyLinkedList {
     return currentNode
   }
 
-  set(index: number, value: unknown): _Node | null {
+  set(index: number, value: unknown): ListNode | null {
     const node = this.get(index)
     if (!node) return null
 

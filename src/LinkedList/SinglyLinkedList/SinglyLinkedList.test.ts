@@ -1,6 +1,6 @@
 import { SinglyLinkedList } from '.'
 
-describe('Singly Linked List', () => {
+describe.skip('Singly Linked List', () => {
   describe('push()', () => {
     test('Should set head and tail with passed value if head is null', () => {
       const list = new SinglyLinkedList()
